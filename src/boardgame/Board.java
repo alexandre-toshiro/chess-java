@@ -1,5 +1,6 @@
 package boardgame;
 
+// DP - defensive programming
 public class Board {
 
 	private int rows;
@@ -7,8 +8,9 @@ public class Board {
 	private Piece[][] pieces;
 
 	public Board(int rows, int columns) {
+		// A quantidade de linhas e colunas tem que de ser de pelo menos 1. DP
 		if (rows < 1 || columns < 1) {
-			throw new BoardException("Error creating board: there must be at leat 1 row and 1 column.");
+			throw new BoardException("Error creating board: there must be at least 1 row and 1 column.");
 		}
 		this.rows = rows;
 		this.columns = columns;
@@ -24,6 +26,7 @@ public class Board {
 	}
 
 	public Piece piece(int row, int column) {
+		// Antes de acessar, verifica se a posição existe. DP
 		if (!positionExists(row, column)) {
 			throw new BoardException("Position not on the board!");
 		}
@@ -31,6 +34,7 @@ public class Board {
 	}
 
 	public Piece piece(Position position) {
+		// Antes de acessar, verifica se a posição existe. DP
 		if (!positionExists(position)) {
 			throw new BoardException("Position not on the board!");
 		}
@@ -38,6 +42,7 @@ public class Board {
 	}
 
 	public void placePiece(Piece piece, Position position) {
+		// Antes de colocar uma peça na posição, verifica se ali já existe outra peça.
 		if (thereIsAPiece(position)) {
 			throw new BoardException("There is already a piece on position " + position);
 		}
