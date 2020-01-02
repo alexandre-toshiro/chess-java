@@ -24,7 +24,7 @@ public class Rook extends ChessPiece {
 		// Acima - above
 
 		p.setValues(position.getRow() - 1, position.getColumn());
-		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+ 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setRow(p.getRow() - 1);
 		}
